@@ -13,11 +13,16 @@ class SubsController < ApplicationController
 
     def edit
         # @sub = Sub.find(params[:id]) done in before_action
-        render component: "SubEdit"
+        render component: "SubEdit",  props: {sub: @sub}
     end
 
     def update
         # @sub = Sub.find(params[:id]) done in before_action
+        if @sub.update(sub_params)
+            redirect_to root_path
+        else
+             #deal with later
+        end
     end
 
     def new
