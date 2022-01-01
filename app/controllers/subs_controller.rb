@@ -1,4 +1,5 @@
 class SubsController < ApplicationController
+    before_action :set_sub, only: [:show, :edit, :update, :destroy]
 
     def index
         @subs = Sub.all
@@ -6,11 +7,17 @@ class SubsController < ApplicationController
     end
 
     def show
-        render component: "Sub"
+        @sub = Sub.find(params[:id])
+        render component: "Sub",  props: {sub: @sub}
     end
 
     def edit
+        # @sub = Sub.find(params[:id]) done in before_action
         render component: "SubEdit"
+    end
+
+    def update
+        # @sub = Sub.find(params[:id]) done in before_action
     end
 
     def new
@@ -18,9 +25,15 @@ class SubsController < ApplicationController
     end
 
     def destroy
-        @sub = Sub.find(params[:id])
+        # @sub = Sub.find(params[:id]) done in before_action
         @sub.destroy
         redirect_to root_path
+    end
+
+    private 
+    
+    def set_sub
+        @sub = Sub.find(params[:id])
     end
 end
 
