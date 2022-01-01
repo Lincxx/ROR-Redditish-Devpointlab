@@ -8,13 +8,13 @@
 
 require "faker"
 
-# Sub.destroy
+#Sub.destroy
 
 10.times do 
     x = Faker::Verb.simple_present
     y = Faker::Verb.ing_form
     z = Faker::Verb.base
-    Sub.create(name:"#{x}#{y}#{z}")
+    Sub.create(name:"#{x} #{y} #{z}")
 end
 
 puts "seeded #{Sub.all.size} Subs"
