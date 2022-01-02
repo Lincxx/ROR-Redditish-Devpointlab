@@ -4,7 +4,7 @@ const TopicEdit = (props) => {
     const { sub } = props
     return (
         <div>
-           <h1>TopicEdit go here</h1> 
+           <h1>TopicEdit Page</h1> 
            <p>Sub is {sub.name}</p>
            <p>Sub id {sub.id}</p>
         </div>

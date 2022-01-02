@@ -8,7 +8,7 @@ const Subs = (props) => {
                 <div>
                     <h1>{ sub.name }</h1>
                     <a href={`subs/${sub.id}`}>show</a>
-                    <a href={`subs/${sub.id}/topics`}>show topics</a>
+                    <a href={`subs/${sub.id}/topics`}>show sub and topics</a>
                     <a href={`subs/${sub.id}/edit`}>edit</a>
                     <a href={`subs/${sub.id}`} data-method='delete'>delete</a>
                 </div>

@@ -4,9 +4,14 @@ const TopicNew = (props) => {
     const { sub } = props
     return (
         <div>
-           <h1>TopicNew go here</h1> 
-           <p>Sub is {sub.name}</p>
-           <p>Sub id {sub.id}</p>
+            <h1>New topic for {sub.id}</h1>
+           <form action={`/subs/${sub.id}/topics`} method="post">
+                <p>body</p>
+                <input name="topic[body]"/>
+                <p>name</p>
+                <input name="topic[name]"/>
+                <button type="submit">add</button>
+           </form>
         </div>
     )
 }

@@ -8,8 +8,8 @@
 
 require "faker"
 
+# Topic.destroy_all
 Sub.destroy_all
-Topic.destroy_all
 
 10.times do 
     x = Faker::Verb.simple_present

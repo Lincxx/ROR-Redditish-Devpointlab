@@ -6,7 +6,7 @@ const Topics = (props) => {
         return topics.map( (topic)  => {
             return (
                 <div>
-                    <h1>{topic.name}</h1>
+                    <h3>{topic.name}</h3>
                     <a href={`/subs/${sub.id}/topics/${topic.id}`}>show</a>
                     <a href={`/subs/${sub.id}/topics/${topic.id}/edit`}>edit</a>
                     <a href={`/subs/${sub.id}/topics/${topic.id}`} data-method='delete'>delete</a>
@@ -16,9 +16,11 @@ const Topics = (props) => {
     }
     return (
         <div>
-           <h1>Topics go here</h1> 
+           <h1>Topics Page</h1> 
            <p>Sub is {sub.name}</p>
            <p>Sub id {sub.id}</p>
+           <h1>Topics</h1>
+           <a href={`/subs/${sub.id}/topics/new`}>new topic</a>
            { renderTopics() }
         </div>
     )

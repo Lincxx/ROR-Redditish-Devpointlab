@@ -4,7 +4,7 @@ const Topic = (props) => {
     const { sub, topic } = props
     return (
         <div>
-           <h1>Topic go here</h1> 
+           <h1>Topic Page</h1> 
            <p>Sub is {sub.name}</p>
            <p>Sub id {sub.id}</p>
            <h1>Topic info</h1>

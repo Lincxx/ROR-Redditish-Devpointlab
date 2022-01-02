@@ -14,6 +14,17 @@ class TopicsController < ApplicationController
         render component: "TopicNew", props: {sub: @sub}
     end
 
+    def create 
+        topic = @sub.topics.new(topic_parmas)
+        if topic.save
+            #show sub show
+            #needs id
+            redirect_to sub_topics_path(@sub.id)
+        else
+            #TODO deal with this later
+        end
+    end
+
     def edit 
         render component: "TopicEdit", props: {sub: @sub}
     end
@@ -24,6 +35,10 @@ class TopicsController < ApplicationController
     end
 
     private 
+
+    def topic_parmas
+        params.require(:topic).permit(:body, :name)
+    end
     
     def set_sub
         @sub = Sub.find(params[:sub_id])
