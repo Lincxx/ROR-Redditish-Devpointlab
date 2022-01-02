@@ -15,7 +15,7 @@ class TopicsController < ApplicationController
     end
 
     def create 
-        topic = @sub.topics.new(topic_parmas)
+        topic = @sub.topics.new(topic_params)
         if topic.save
             #show sub show
             #needs id
@@ -26,17 +26,25 @@ class TopicsController < ApplicationController
     end
 
     def edit 
-        render component: "TopicEdit", props: {sub: @sub}
+        render component: "TopicEdit", props: {sub: @sub, topic: @topic}
+    end
+
+    def update
+        if @topic.update(topic_params)
+            redirect_to sub_topics_path(@sub.id)
+        else
+            #TODO deal with this later
+        end
     end
 
     def destroy
         @topic.destroy
-        #redirect_to
+        redirect_to sub_topics_path(@sub.id)
     end
 
     private 
 
-    def topic_parmas
+    def topic_params
         params.require(:topic).permit(:body, :name)
     end
     
